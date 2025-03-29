@@ -3,8 +3,8 @@
         <div class="left">
             <h1>M'Trails</h1>
             <p>Rejoins notre communauté passionnée et participe à l'entretien des pistes locales !</p>
-            <a id="shape" routerLink="">Participer au prochain shape</a>
-            <a id="spots" routerLink="spots">Découvir les spots</a>
+            <a id="shape" href="#">Participer au prochain shape</a>
+            <a id="spots" (click)="scrollToSpots()">Découvir les spots</a>
         </div>
         <div class="right">
             <img src="images/home.jpg" alt="home" class="home-image">
@@ -15,7 +15,7 @@
     <h2>Nos spots</h2>
     <p>Découvre nos pistes de VTT entretenues par une communauté passionnée. Que tu sois débutant ou expert, rejoins-nous pour rider et améliorer les spots !</p>
     
-    <div class="spots-list">
+    <div class="spots-list" id="spots">
       <div class="spot-card" *ngFor="let spot of spots">
         <div class="spot-image-container">
           <img [src]="spot.imageUrl" alt="Image indisponible" class="spot-image">

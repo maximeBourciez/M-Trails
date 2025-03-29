@@ -270,7 +270,6 @@
         font-size: 2.5rem;
         margin-bottom: 1rem;
         font-weight: bold;
-        text-transform: uppercase;
     }
 
     >p {
@@ -421,11 +420,10 @@
         // Eléments pour l'aniomation d'apparition
         opacity: 0;
         transform: translateY(30px);
-        transition: 
-            opacity 0.6s ease-out,
-            transform 0.6s ease-out,
-            box-shadow 0.3s ease;
-        
+        transition: opacity 0.6s ease-out,
+        transform 0.6s ease-out,
+        box-shadow 0.3s ease;
+
         /* Délai progressif pour chaque carte */
         @for $i from 1 through 10 {
             &:nth-child(#{$i}) {
@@ -463,9 +461,25 @@
 
     .spots-container .spot-card {
         transform: translateY(20px);
-        
+
         &.visible {
             transform: translateY(0);
         }
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+// Si vous voulez personnaliser la durée du défilement
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+        scroll-snap-type: y proximity;
+    }
+
+    .spots-container {
+        scroll-margin-top: 80px; // Ajustez selon la hauteur de votre header
     }
 }

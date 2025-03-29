@@ -14,6 +14,7 @@ export class HomeComponent {
   // Attributs
   spots: Spot[] = []; // Liste des spots
   private readonly spotService: SpotService = inject(SpotService); 
+  viewportScroller: any;
 
   // Constructeur
   constructor() { }
@@ -45,5 +46,9 @@ export class HomeComponent {
         card.classList.add('visible');
       }
     });
+  }
+
+  scrollToSpots() {
+    document.getElementById('spots')?.scrollIntoView({ behavior: 'smooth' });
   }
 }
