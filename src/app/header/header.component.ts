@@ -7,10 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  isMenuOpen = false; // Variable pour gérer l'état du menu
+  isMenuOpen = false;
+  isMobileMenuOpen = false;
 
-  // Fonction pour toggler l'état du menu
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 }

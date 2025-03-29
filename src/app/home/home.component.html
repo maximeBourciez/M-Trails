@@ -13,12 +13,38 @@
 </div>
 <div class="spots-container">
     <h2>Nos spots</h2>
+    <p>Découvre nos pistes de VTT entretenues par une communauté passionnée. Que tu sois débutant ou expert, rejoins-nous pour rider et améliorer les spots !</p>
+    
     <div class="spots-list">
-        <div class="spot-card" *ngFor="let spot of spots">
-            <img [src]="spot.image" alt="{{ spot.name }}" class="spot-image">
-            <h3>{{ spot.name }}</h3>
-            <p>{{ spot.description }}</p>
-            <a [routerLink]="['/spots', spot.id]" class="view-more">Voir plus</a>
+      <div class="spot-card" *ngFor="let spot of spots">
+        <div class="spot-image-container">
+          <img [src]="spot.imageUrl" alt="Image indisponible" class="spot-image">
+          <h3 class="spot-name">{{ spot.name }}</h3>
         </div>
+        
+        <div class="spot-status">
+          <span class="status-badge" [ngClass]="spot.isOpen ? 'open' : 'closed'">
+            {{ spot.isOpen ? 'Ouvert' : 'Fermé' }}
+          </span>
+          <span class="maintenance-date">Maintenance: {{ spot.maintenanceDate | date:'dd/MM/yyyy' }}</span>
+        </div>
+        
+        <div class="spot-description">
+          {{ spot.description }}
+        </div>
+        
+        <div class="spot-info">
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>{{ spot.ville }}</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-mountain"></i>
+            <span>{{ spot.elevation }} m</span>
+          </div>
+        </div>
+        
+        <a [routerLink]="['/spots', spot.id]" class="view-more">Voir plus</a>
+      </div>
     </div>
-</div>
+  </div>

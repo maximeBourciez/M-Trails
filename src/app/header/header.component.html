@@ -5,9 +5,14 @@
             <h1>M'trails</h1>
         </div>
         
-
-        <ul id="mainUl">
-            <li><a href="#">Accueil</a></li> 
+        <div class="menu-toggle" (click)="toggleMobileMenu()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+       
+        <ul id="mainUl" [ngClass]="{'active': isMobileMenuOpen}">
+            <li><a href="#">Accueil</a></li>
             <li (click)="toggleMenu()">Spots
                 <ul [ngClass]="{'open': isMenuOpen}" id="toggleUl">
                     <li><a href="#">Maillarenea</a></li>
@@ -16,10 +21,8 @@
             </li>
             <li><a href="#">Signalements</a></li>
             <li><a href="#">Actualités</a></li>
-            
         </ul>
-
+        
         <li id="contact"><a href="#">Contact</a></li>
-
     </nav>
 </header>
