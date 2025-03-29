@@ -50,6 +50,10 @@ header {
             &:hover ul {
                 display: block;
             }
+            
+            &.mobile-contact {
+                display: none;
+            }
         }
         
         ul {
@@ -204,6 +208,24 @@ header {
             li {
                 font-size: 18px;
                 
+                &.mobile-contact {
+                    display: block;
+                    
+                    a {
+                        display: inline-block;
+                        color: white;
+                        background: #f97316;
+                        padding: 8px 20px;
+                        border-radius: 20px;
+                        font-weight: bold;
+                        transition: background 0.3s;
+                        
+                        &:hover {
+                            background: #ea580c;
+                        }
+                    }
+                }
+                
                 ul {
                     position: static;
                     display: none;
@@ -228,17 +250,7 @@ header {
         }
         
         #contact {
-            margin-left: 0;
-            order: 3;
-            width: 100%;
-            text-align: center;
-            margin-top: 15px;
-            
-            a {
-                display: inline-block;
-                width: 100%;
-                padding: 10px 0;
-            }
+            display: none;
         }
     }
 }
@@ -255,6 +267,15 @@ header {
             
             h1 {
                 font-size: 1.2rem;
+            }
+        }
+        
+        ul#mainUl {
+            li.mobile-contact {
+                a {
+                    padding: 10px 15px;
+                    text-align: center;
+                }
             }
         }
     }
