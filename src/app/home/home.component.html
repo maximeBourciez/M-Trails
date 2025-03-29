@@ -1,0 +1,24 @@
+<div class="home-container">
+    <div class="top">
+        <div class="left">
+            <h1>M'Trails</h1>
+            <p>Rejoins notre communauté passionnée et participe à l'entretien des pistes locales !</p>
+            <a id="shape" routerLink="">Participer au prochain shape</a>
+            <a id="spots" routerLink="spots">Découvir les spots</a>
+        </div>
+        <div class="right">
+            <img src="images/home.jpg" alt="home" class="home-image">
+        </div>
+    </div>
+</div>
+<div class="spots-container">
+    <h2>Nos spots</h2>
+    <div class="spots-list">
+        <div class="spot-card" *ngFor="let spot of spots">
+            <img [src]="spot.image" alt="{{ spot.name }}" class="spot-image">
+            <h3>{{ spot.name }}</h3>
+            <p>{{ spot.description }}</p>
+            <a [routerLink]="['/spots', spot.id]" class="view-more">Voir plus</a>
+        </div>
+    </div>
+</div>

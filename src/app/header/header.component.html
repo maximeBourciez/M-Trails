@@ -1,18 +1,25 @@
 <header>
     <nav id="headNav">
-        <img src="images/logo.png" alt="Logo" class="logo">
+        <div class="left">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <h1>M'trails</h1>
+        </div>
+        
 
         <ul id="mainUl">
-            <li><a href="#">Accueil</a></li> <i class="fas fa-angle-down"></i>
+            <li><a href="#">Accueil</a></li> 
             <li (click)="toggleMenu()">Spots
                 <ul [ngClass]="{'open': isMenuOpen}" id="toggleUl">
                     <li><a href="#">Maillarenea</a></li>
                     <li><a href="#">Bittola</a></li>
                 </ul>
             </li>
+            <li><a href="#">Signalements</a></li>
             <li><a href="#">Actualités</a></li>
-            <li id="contact"><a href="#">Contact</a></li>
+            
         </ul>
+
+        <li id="contact"><a href="#">Contact</a></li>
 
     </nav>
 </header>
