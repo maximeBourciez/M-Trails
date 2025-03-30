@@ -62,7 +62,7 @@
     </div>
     <div class="contact-right">
       <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="contact-form">
-        <div class="</form>form-group">
+        <div class="form-group">
           <label for="name">Nom *</label>
           <input type="text" id="name" name="name" placeholder="Ex: Pierre Dupont" required>
         </div>
@@ -86,7 +86,7 @@
           <textarea id="message" name="message" rows="4" placeholder="Ex: Problème sur la piste ..." ngModel required></textarea>
         </div>
         <p class="required-fields">* Champs obligatoires</p>
-        <button type="submit" [disabled]="">Envoyer</button>
+        <button type="submit" [disabled]="contactForm.invalid">Envoyer</button>
       </form>
     </div>
   </div>

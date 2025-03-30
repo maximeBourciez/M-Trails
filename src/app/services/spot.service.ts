@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Spot } from '../models/spot.model'; // Importer le modèle Spot
+import { Spot, SpotDetail } from '../models/spot.model'; // Importer le modèle Spot
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +40,37 @@ export class SpotService {
     }
   ]; // Liste des spots
 
+  private details: SpotDetail[] = [
+    {
+      id: 1,
+      name: "Module A",
+      description: "Un module technique avec des rails et des sauts.",
+      imageUrl: "https://example.com/module-a.jpg",
+      idSpot: 1
+    },
+    {
+      id: 2,
+      name: "Module B",
+      description: "Un module mix avec des courbes et des sauts.",
+      imageUrl: "https://example.com/module-b.jpg",
+      idSpot: 2
+    },
+    {
+      id: 3,
+      name: "Module C",
+      description: "Un module avec des rampes et des rails.",
+      imageUrl: "https://example.com/module-c.jpg",
+      idSpot: 1
+    },
+    {
+      id: 4,
+      name: "Module D",
+      description: "Un module avec des sauts et des courbes.",
+      imageUrl: "https://example.com/module-d.jpg",
+      idSpot: 2
+    }
+  ]; // Liste des détails de spots
+
   // Constructeur
   constructor() { }
 
@@ -51,5 +82,10 @@ export class SpotService {
 
   getSpotById(id: number): Observable<Spot | undefined> {
     return of(this.lesSpots.find(spot => spot.id === id));
+  }
+
+  // Récupérer les détails d'un spot
+  getSpotDetails(id: number): Observable<SpotDetail[]> {
+    return of(this.details.filter(detailsSpots => detailsSpots.idSpot === id));
   }
 }

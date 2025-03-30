@@ -11,9 +11,10 @@ export class Spot {
     rating: number;         // Note du spot (de 0 à 5)
     reviews: number;        // Nombre d'avis sur le spot
     maintenanceDate: string|Date;  // Date de la dernière maintenance
+    details?: SpotDetail[]; // Détails supplémentaires sur le spot
 
     // Constructeur
-    constructor(id: number, name: string, description: string, isOpen: boolean, elevation: number, imageUrl: string, ville: string, type: string, rating: number, reviews: number, maintenanceDate: Date) {
+    constructor(id: number, name: string, description: string, isOpen: boolean, elevation: number, imageUrl: string, ville: string, type: string, rating: number, reviews: number, maintenanceDate: Date, details?: SpotDetail[]) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -25,5 +26,25 @@ export class Spot {
         this.rating = rating;
         this.reviews = reviews;
         this.maintenanceDate = new Date(maintenanceDate);
+    }
+}
+
+
+// Classe détaillée pour le spot
+export class SpotDetail{
+    // Attributs
+    id: number;             // Identifiant unique du détail
+    name: string;           // Nom du détail
+    description: string;    // Description du détail
+    imageUrl: string;       // URL de l'image du détail
+    idSpot: number;        // Identifiant du spot associé (optionnel)
+
+    // Constructeur
+    constructor(id: number, name: string, description: string, imageUrl: string, idSpot: number) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.idSpot = idSpot; 
     }
 }
