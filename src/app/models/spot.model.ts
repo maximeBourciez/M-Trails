@@ -10,7 +10,7 @@ export class Spot {
     type: string;           // Type de spot (ex: airline, tech, mix, etc)
     rating: number;         // Note du spot (de 0 à 5)
     reviews: number;        // Nombre d'avis sur le spot
-    maintenanceDate: Date;  // Date de la dernière maintenance
+    maintenanceDate: string|Date;  // Date de la dernière maintenance
 
     // Constructeur
     constructor(id: number, name: string, description: string, isOpen: boolean, elevation: number, imageUrl: string, ville: string, type: string, rating: number, reviews: number, maintenanceDate: Date) {
@@ -24,6 +24,6 @@ export class Spot {
         this.type = type;
         this.rating = rating;
         this.reviews = reviews;
-        this.maintenanceDate = maintenanceDate;
+        this.maintenanceDate = new Date(maintenanceDate);
     }
 }
