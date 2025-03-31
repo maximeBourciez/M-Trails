@@ -9,13 +9,15 @@ import { SpotComponent } from './spot/spot.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    SpotComponent,    
+    SpotComponent,
+    FooterComponent,    
   ],
   imports: [
     BrowserModule,
