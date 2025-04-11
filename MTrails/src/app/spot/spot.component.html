@@ -1,0 +1,26 @@
+<div *ngIf="spot" class="spot-detail-container">
+  <div class="spot-detail-wrapper">
+    <!-- Image à gauche -->
+    <div class="image-container">
+      <img [src]="spot.imageUrl" alt="{{ spot.name }}" class="spot-detail-image" />
+    </div>
+
+    <!-- Contenu à droite -->
+    <div class="spot-detail-content">
+      <h2>{{ spot.name }}</h2>
+
+      <span class="badge" [ngClass]="spot.isOpen ? 'open' : 'closed'">
+        <mat-icon>{{ spot.isOpen ? 'check_circle' : 'cancel' }}</mat-icon>
+        {{ spot.isOpen ? 'Ouvert' : 'Fermé' }}
+      </span>
+
+      <p><mat-icon>build</mat-icon> Dernière maintenance : {{ spot.maintenanceDate | date:'longDate' }}</p>
+      <p>{{ spot.description }}</p>
+
+      <div class="details-icons">
+        <p><mat-icon>location_on</mat-icon> {{ spot.ville }}</p>
+        <p><mat-icon>terrain</mat-icon> {{ spot.elevation }} m</p>
+      </div>
+    </div>
+  </div>
+</div>

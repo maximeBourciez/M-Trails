@@ -1,0 +1,69 @@
+.spot-detail-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f9fafb;
+}
+
+.spot-detail-wrapper {
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 768px) {
+  .spot-detail-wrapper {
+    flex-direction: column;
+  }
+}
+
+.image-container {
+  flex: 1;
+  min-width: 300px;
+}
+.image-container .spot-detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spot-detail-content {
+  flex: 2;
+  padding: 2rem;
+}
+.spot-detail-content h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.spot-detail-content .badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white;
+}
+.spot-detail-content .badge mat-icon {
+  margin-right: 5px;
+}
+.spot-detail-content .badge.open {
+  background-color: #16a34a;
+}
+.spot-detail-content .badge.closed {
+  background-color: #dc2626;
+}
+.spot-detail-content .details-icons p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+.spot-detail-content .details-icons p mat-icon {
+  color: #f97316;
+}
+
+/*# sourceMappingURL=spot.component.css.map */
