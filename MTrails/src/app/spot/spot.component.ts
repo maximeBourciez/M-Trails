@@ -46,13 +46,11 @@ export class SpotComponent implements OnInit {
 
   private loadSpotData(spotId: number): void {
     forkJoin({
-      spot: this.spotService.getSpotById(spotId).pipe(
-        catchError(() => of(null))),
-      details: this.spotDetailsService.getSpotDetails(spotId).pipe(
-        catchError(() => of([])))
+      spot: this.spotService.getSpotById(spotId),
+      details: this.spotDetailsService.getSpotDetails(spotId),
     }).subscribe({
       next: ({spot, details}) => {
-        this.spot = spot; // Maintenant le type est correct
+        this.spot = spot; 
         this.spotDetails = details;
         this.loading = false;
 
