@@ -10,3 +10,8 @@ export interface Spot {
     type: string;           // Type de spot (ex: airline, tech, mix, etc)
     maintenanceDate: string|Date;  // Date de la dernière maintenance
 }
+
+export interface LightSpot {
+  id: number;
+  name: string;
+}

@@ -14,6 +14,8 @@ class Spot extends Model
         'ville', 'type', 'rating', 'reviews', 'maintenanceDate'
     ];
 
+    public $timestamps = false;
+
     public function details()
     {
         return $this->hasMany(SpotDetail::class);

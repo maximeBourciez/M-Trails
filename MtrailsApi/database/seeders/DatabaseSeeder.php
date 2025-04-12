@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             SpotSeeder::class,
             SpotDetailSeeder::class,
+            ActualiteSeeder::class,
         ]);
     }
 }

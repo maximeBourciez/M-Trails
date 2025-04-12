@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 
 // Material
 import { MatIconModule } from '@angular/material/icon';
+import { SignalementComponent } from './signalement/signalement.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
     HeaderComponent,
     HomeComponent,
     SpotComponent,
+    SignalementComponent,
   ],
   imports: [
     BrowserModule,

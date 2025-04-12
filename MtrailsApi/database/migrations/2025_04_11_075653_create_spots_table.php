@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('ville');
             $table->string('type'); // tech, airline, etc.
             $table->date('maintenanceDate')->nullable();
-            $table->timestamps();
         });
     }
 

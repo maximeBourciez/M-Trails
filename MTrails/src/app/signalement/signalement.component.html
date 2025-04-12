@@ -1,0 +1,59 @@
+<div class="contact">
+  <h2>Signaler un problème</h2>
+
+  <div class="contact-container">
+    <div class="contact-left">
+      <p>Un problème sur un spot ? Une suggestion d’amélioration ? Faites-nous part de vos retours ! Votre contribution
+        nous aide à rendre nos pistes encore meilleures.</p>
+
+      <p>Que ce soit un obstacle dangereux, une section à retravailler ou toute autre remarque, nous sommes à l’écoute.
+        Plus nous avons de retours, plus nous pouvons améliorer l’expérience pour tous les riders ! 🚵‍♂️💥</p>
+    </div>
+
+    <div class="contact-right">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+        <div class="form-group">
+          <label for="name">Nom *</label>
+          <input type="text" id="name" formControlName="name" placeholder="Ex: Pierre Dupont">
+          <small *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+            Ce champ est obligatoire.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" formControlName="email" placeholder="Ex: pierre@exemple.com">
+          <small *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+            {{ contactForm.get('email')?.errors?.['required'] ? 'Ce champ est obligatoire.' : 'Email invalide.' }}
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Sujet *</label>
+          <select id="subject" formControlName="subject">
+            <option value="" disabled selected>Choisir un sujet</option>
+            <ng-container *ngFor="let spotName of spotsNames">
+              <option [value]="spotName">{{ spotName }}</option>
+            </ng-container>
+            <option value="Site web">Site web</option>
+            <option value="Autre">Autre</option>
+          </select>
+          <small *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
+            Ce champ est obligatoire.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" formControlName="message" rows="4" placeholder="Ex: Problème sur la piste..."></textarea>
+          <small *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+            Ce champ est obligatoire.
+          </small>
+        </div>
+
+        <p class="required-fields">* Champs obligatoires</p>
+        <button type="submit" [disabled]="contactForm.invalid">Envoyer</button>
+      </form>
+    </div>
+  </div>
+</div>

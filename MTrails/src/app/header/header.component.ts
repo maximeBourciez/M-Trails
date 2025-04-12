@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {SpotService} from '../services/spot.service';
+import {LightSpot} from '../models/spot.model';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +11,17 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   isMenuOpen = false;
   isMobileMenuOpen = false;
+
+  private readonly spotService: SpotService = inject(SpotService);
+  spots!: LightSpot[];
+
+  ngOnInit() {
+    this.spotService.getAllSpots().subscribe(
+      response => {
+        this.spots = response;
+      }
+    )
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

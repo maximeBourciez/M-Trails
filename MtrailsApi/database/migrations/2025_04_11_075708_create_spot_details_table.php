@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('image');
             $table->text('description');
             $table->foreignId('spot_id')->constrained();
-            $table->timestamps();
         });
     }
 

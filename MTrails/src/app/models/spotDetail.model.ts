@@ -1,4 +1,4 @@
-export interface spotDetail {
+export interface SpotDetail {
   id: string;
   name: string;
   image: string;

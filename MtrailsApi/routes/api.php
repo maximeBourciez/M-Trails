@@ -8,8 +8,11 @@ use App\Http\Controllers\SpotController;
 use App\Http\Controllers\SpotDetailController;
 use App\Http\Controllers\ContactController;
 
-
+// Spots
 Route::apiResource('spots', SpotController::class);
+Route::get('lightSpots', [SpotController::class, 'getLightSpots']);
+
+// Spot details
 Route::apiResource('spotsdetails', SpotDetailController::class);
 Route::get('spots/{id}/details', [SpotDetailController::class, 'getDetailsBySpotId']);
 

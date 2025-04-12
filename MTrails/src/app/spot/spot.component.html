@@ -23,4 +23,16 @@
       </div>
     </div>
   </div>
+
+  <!-- Détails supplémentaires -->
+  <div *ngIf="spotDetails.length > 0" class="spot-details">
+    <h3>Détails supplémentaires</h3>
+    <div class="spot-detail-item" *ngFor="let detail of spotDetails">
+      <img [src]="detail.image" alt="{{ detail.name }}" />
+      <div>
+        <h4>{{ detail.name }}</h4>
+        <p>{{ detail.description }}</p>
+      </div>
+    </div>
+  </div>
 </div>

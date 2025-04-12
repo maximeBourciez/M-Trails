@@ -1,0 +1,175 @@
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to left, #111827, #000000);
+  padding: 50px 20px; // Ajout de padding horizontal réduit pour mobiles
+  flex-direction: column;
+  color: white;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center; // Centrer sur petit écran
+
+    &:after {
+      content: '';
+      display: block;
+      height: 3px;
+      background-color: #FF8C00; // Barre horizontale orange
+      margin: 2rem auto 3rem;
+      width: 200%;
+      margin-left: -50%;
+    }
+  }
+
+  .contact-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1100px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    gap: 40px;
+
+    // Responsive: passer en colonne sur mobile
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+    }
+  }
+
+  .contact-left,
+  .contact-right {
+    flex: 1;
+    padding: 20px;
+
+    @media (max-width: 768px) {
+      padding: 15px;
+    }
+  }
+
+  .contact-left {
+    color: white;
+    text-align: left;
+    max-width: 500px;
+    justify-content: center;
+    margin: auto;
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+
+      @media (max-width: 576px) {
+        font-size: 20px;
+      }
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 50px;
+      line-height: 1.5;
+
+      @media (max-width: 576px) {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .contact-right {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+
+    @media (max-width: 576px) {
+      padding: 15px;
+    }
+  }
+
+  .required-fields {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    .form-group {
+      margin-bottom: 20px;
+
+      @media (max-width: 576px) {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: white;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        max-width: 100%; // Empêche de dépasser
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        box-sizing: border-box; // Empêche le débordement avec padding
+        margin-top: 5px; // Ajoute un peu d'espace sous le label
+
+        @media (max-width: 576px) {
+          padding: 10px;
+        }
+      }
+
+      textarea {
+        resize: none;
+        min-height: 100px;
+
+        @media (max-width: 576px) {
+          min-height: 80px;
+        }
+      }
+
+      option {
+        color: black;
+      }
+    }
+
+    button {
+      padding: 12px;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      @media (max-width: 576px) {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      &:hover {
+        border-color: transparent;
+        background: #ea580c;
+      }
+
+      &:disabled {
+        background: rgba(255, 255, 255, 0.2);
+        cursor: not-allowed;
+      }
+    }
+  }
+}

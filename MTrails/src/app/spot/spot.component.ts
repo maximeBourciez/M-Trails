@@ -1,8 +1,8 @@
-import {Component, inject, OnInit} from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Spot } from '../models/spot.model';
 import { SpotService } from '../services/spot.service';
-import { spotDetail } from '../models/spotDetail.model';
+import { SpotDetail } from '../models/spotDetail.model';
 import { SpotDetailsService } from '../services/spot-details.service';
 import { forkJoin, catchError, of } from 'rxjs';
 
@@ -13,25 +13,31 @@ import { forkJoin, catchError, of } from 'rxjs';
   styleUrls: ['./spot.component.scss']
 })
 export class SpotComponent implements OnInit {
-  // Données initialisées avec des valeurs par défaut plus strictes
-  spot!: Spot;
-  spotDetails: spotDetail[] = [];
+  // États du composant
+  spot: Spot | null = null;
+  spotDetails: SpotDetail[] = [];
   loading = true;
   error: string | null = null;
 
+  // Injection des services
   private readonly route = inject(ActivatedRoute);
   private readonly spotService = inject(SpotService);
   private readonly spotDetailsService = inject(SpotDetailsService);
 
   ngOnInit(): void {
     const spotId = this.getSpotIdFromRoute();
-
+    
     if (isNaN(spotId)) {
       this.handleInvalidId();
       return;
     }
 
     this.loadSpotData(spotId);
+
+    // Debug
+    console.log('Spot ID:', spotId);
+    console.log('Spot:', this.spot);
+    console.log('Spot Details:', this.spotDetails);
   }
 
   private getSpotIdFromRoute(): number {
@@ -42,18 +48,29 @@ export class SpotComponent implements OnInit {
   private handleInvalidId(): void {
     this.error = 'ID de spot invalide';
     this.loading = false;
+    console.error('Invalid spot ID');
   }
 
   private loadSpotData(spotId: number): void {
-    forkJoin({
-      spot: this.spotService.getSpotById(spotId),
-      details: this.spotDetailsService.getSpotDetails(spotId),
-    }).subscribe({
-      next: ({spot, details}) => {
-        this.spot = spot; 
+    forkJoin([
+      this.spotService.getSpotById(spotId).pipe(
+        catchError(err => {
+          console.error('Error loading spot:', err);
+          return of(null);
+        })
+      ),
+      this.spotDetailsService.getSpotDetails(spotId).pipe(
+        catchError(err => {
+          console.error('Error loading spot details:', err);
+          return of([]);
+        })
+      )
+    ]).subscribe({
+      next: ([spot, details]) => {
+        this.spot = spot;
         this.spotDetails = details;
         this.loading = false;
-
+        
         if (!spot) {
           this.error = 'Spot non trouvé';
         }
@@ -61,7 +78,7 @@ export class SpotComponent implements OnInit {
       error: (err) => {
         this.error = 'Erreur lors du chargement des données';
         this.loading = false;
-        console.error('Erreur:', err);
+        console.error('Global error:', err);
       }
     });
   }

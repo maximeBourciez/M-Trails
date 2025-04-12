@@ -53,4 +53,15 @@ class SpotController extends Controller
     {
         //
     }
+
+    /**
+     * Get light spots.
+     */
+    public function getLightSpots()
+    {
+        $spots = Spot::select('id', 'name')
+            ->get();
+
+        return response()->json($spots);
+    }
 }
