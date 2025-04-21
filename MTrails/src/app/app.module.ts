@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
+import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { SpotComponent } from './spot/spot.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
-// Material
-import { MatIconModule } from '@angular/material/icon';
+//Compoents
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { SpotComponent } from './spot/spot.component';
 import { SignalementComponent } from './signalement/signalement.component';
+import { ActualiteComponent } from './actualite/actualite.component';
+import { ListActualiteComponent } from './list-actualite/list-actualite.component';
+import { FooterComponent } from './footer/footer.component';
+
+
+// Material
+import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -23,6 +29,9 @@ import { SignalementComponent } from './signalement/signalement.component';
     HomeComponent,
     SpotComponent,
     SignalementComponent,
+    ActualiteComponent,
+    ListActualiteComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +44,19 @@ import { SignalementComponent } from './signalement/signalement.component';
     /// Material
     MatIconModule,
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    this.matIconRegistry.addSvgIcon(
+      'instagram',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/instagram.svg')
+    );
+  }
+}

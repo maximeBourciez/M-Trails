@@ -19,47 +19,29 @@ class SpotDetailSeeder extends Seeder
 
         $details = [
             [
-                'id' => 1,
-                'name' => 'Drop technique',
-                'image' => 'https://example.com/maillarenea-drop.jpg',
-                'description' => 'Un drop serré avec réception inclinée. Parfait pour tester ses suspensions.',
-                'spot_id' => $spot1->id,
-            ],
-            [
-                'id' => 2,
-                'name' => 'Passage en racines',
-                'image' => 'https://example.com/maillarenea-racines.jpg',
-                'description' => 'Section remplie de racines glissantes en hiver. Un bon défi technique.',
-                'spot_id' => $spot1->id,
-            ],
-            [
-                'id' => 3,
-                'name' => 'Wallride en courbe',
-                'image' => 'https://example.com/maillarenea-wallride.jpg',
-                'description' => 'Un wallride progressif dans un virage à gauche. Très visuel.',
-                'spot_id' => $spot1->id,
-            ],
-            [
-                'id' => 4,
-                'name' => 'Table large',
-                'image' => 'https://example.com/bittola-table.jpg',
-                'description' => 'Une table de 6 mètres, très bien shappée, idéale pour envoyer fort.',
+                'name' => 'Ligne à double lecture',
+                'image' => 'assets/spots/bittola_1.JPEG',
+                'description' => 'Une ligne complète pensée pour tous les riders, qu’ils soient novices ou confirmés. Chaque module est conçu avec deux options : un saut engagé pour ceux qui veulent envoyer, ou une échappatoire plus douce pour rouler en confiance. Cette configuration permet à chacun de s’exprimer à son rythme tout en partageant la même piste. C’est l’endroit idéal pour progresser, se challenger ou simplement rouler avec style.',
                 'spot_id' => $spot2->id,
             ],
             [
-                'id' => 5,
-                'name' => 'Flowline avec virages relevés',
-                'image' => 'https://example.com/bittola-flow.jpg',
-                'description' => 'Enchaînement de virages relevés sur terrain lisse. Sensation de surf !',
+                'name' => 'Modules engagés',
+                'image' => 'assets/spots/bittola_2.JPEG',
+                'description' => 'Step-up puissants, gros doubles aériens, tables propres et bien shapées… cette ligne est pensée pour ceux qui en veulent. Chaque module est calibré pour t’offrir un maximum de sensations tout en conservant une certaine marge de sécurité. Les réceptions sont larges, dégagées et entretenues pour poser en confiance. Tu peux y envoyer des gros tricks ou juste te laisser porter dans le flow puissant du tracé.',
                 'spot_id' => $spot2->id,
             ],
             [
-                'id' => 6,
-                'name' => 'Double technique en montée',
-                'image' => 'https://example.com/bittola-double.jpg',
-                'description' => 'Un double à franchir en montée, demande précision et relance.',
+                'name' => 'Remontée dédiée',
+                'image' => 'assets/spots/bittola_3.JPEG',
+                'description' => 'Une piste de montée séparée et sécurisée te permet de remonter tranquillement sans gêner les riders en descente. Que tu remontes à la pédale ou que tu pousses ton bike, tu ne croiseras jamais la ligne principale. Cela garantit une session plus fluide et sans interruptions. C’est un vrai confort pour l’organisation, la sécurité, et le plaisir de rouler sans stress, en boucle.',
                 'spot_id' => $spot2->id,
-            ]
+            ],
+            [
+                'name' => 'Entretien régulier',
+                'image' => 'assets/spots/bittola_4.JPEG',  
+                'description' => 'L’entretien du spot est une priorité pour garantir la sécurité et le plaisir des riders. Les modules sont régulièrement contrôlés et ajustés selon leur état. Lorsque des bosses commencent à se fragiliser ou deviennent inadéquates, elles sont immédiatement retravaillées. De plus, chaque élément du parcours est vérifié, nettoyé et entretenu pour assurer une expérience fluide et sécurisée. Nous nous engageons à maintenir ce spot dans un état optimal pour que chaque session soit aussi agréable que sécuritaire.',
+                'spot_id' => $spot2->id,  
+            ],
         ];
 
         foreach ($details as $detailData) {

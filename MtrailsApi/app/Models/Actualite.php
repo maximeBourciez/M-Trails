@@ -21,6 +21,8 @@ class Actualite extends Model
 
     public $timestamps = false;
 
+    protected $primaryKey = 'idActu';
+
     // Relier avec les détails de l'actualité
     public function details()
     {

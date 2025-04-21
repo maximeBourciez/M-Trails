@@ -14,13 +14,18 @@
         {{ spot.isOpen ? 'Ouvert' : 'Fermé' }}
       </span>
 
-      <p><mat-icon>build</mat-icon> Dernière maintenance : {{ spot.maintenanceDate | date:'longDate' }}</p>
+      <p><mat-icon>build</mat-icon> Dernière maintenance : {{ spot.maintenanceDate | date: 'dd MMMM yyyy' }}</p>
       <p>{{ spot.description }}</p>
 
       <div class="details-icons">
         <p><mat-icon>location_on</mat-icon> {{ spot.ville }}</p>
         <p><mat-icon>terrain</mat-icon> {{ spot.elevation }} m</p>
       </div>
+
+      <!-- Bouton pour ouvrir la vidéo -->
+      <button *ngIf="spot.videoUrl" (click)="openVideo()" class="video-button">
+        Voir la vidéo
+      </button>
     </div>
   </div>
 
@@ -35,4 +40,21 @@
       </div>
     </div>
   </div>
+
+    <div id="end-details">
+      <!-- Section de la vidéo intégrée -->
+      <div *ngIf="videoUrlSafe" class="video-container">
+        <h3>Vidéo de présentation</h3>
+        <iframe [src]="videoUrlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <!-- Section de la carte intégrée -->
+      <div *ngIf="mapUrlSafe" class="map-container">
+        <h3>Localisation</h3>
+        <iframe [src]="mapUrlSafe" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+
+
 </div>

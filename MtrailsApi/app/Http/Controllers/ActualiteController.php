@@ -13,7 +13,8 @@ class ActualiteController extends Controller
      */
     public function index()
     {
-        //
+        $actualites = Actualite::all();
+        return response()->json($actualites);    
     }
 
     /**
@@ -27,10 +28,18 @@ class ActualiteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Actualite $actualite)
+    public function show(int $idActu)
     {
-        //
+        $actualite = Actualite::with('details')->find($idActu);
+
+        if (!$actualite) {
+            return response()->json(['message' => 'Actualité not found'], 404);
+        }
+
+        return response()->json($actualite);
     }
+    
+
 
     /**
      * Update the specified resource in storage.

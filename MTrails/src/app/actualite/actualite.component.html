@@ -1,0 +1,27 @@
+<div class="actualite-container" *ngIf="actualite && actualite.details">
+  <div class="actualite-header">
+    <img [src]="actualite.image" alt="Image indisponible" class="actualite-image">
+    <h2 class="actualite-title">{{ actualite.titre }}</h2>
+    <h4 class="actualite-subtitle">{{ actualite.sousTitre }}</h4>
+    <p class="actualite-description">{{ actualite.description }}</p>
+    <a *ngIf="actualite.inscriptionUrl" [href]="actualite.inscriptionUrl" target="_blank" class="inscription-link">S'inscrire</a>
+  </div>
+
+  <div class="actualite-details">
+    <h3>Détails</h3>
+    <div
+      class="detail-card"
+      *ngFor="let detail of actualite.details; let i = index"
+      [ngClass]="{ 'reverse': i % 2 !== 0 }"
+    >
+      <div class="detail-image-container">
+        <img [src]="detail.image" alt="Détail image" class="detail-image" />
+      </div>
+      <div class="detail-content">
+        <h4>{{ detail.titre }}</h4>
+        <p>{{ detail.description }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>

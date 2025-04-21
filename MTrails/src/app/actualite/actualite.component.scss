@@ -1,0 +1,167 @@
+.actualite-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.actualite-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.actualite-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.actualite-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.actualite-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.actualite-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+}
+
+.inscription-link {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: #0066cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.inscription-link:hover {
+  background-color: #0052a3;
+}
+
+.actualite-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.actualite-details h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+}
+
+.detail-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.detail-image-container {
+  flex: 1;
+  min-width: 0; /* Empêche le débordement */
+}
+
+.detail-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.detail-content {
+  flex: 1;
+  min-width: 0; /* Empêche le débordement */
+}
+
+.detail-content h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.detail-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Version reverse */
+.detail-card.reverse {
+  flex-direction: row-reverse;
+  text-align: left;
+}
+
+/* Responsive pour tablettes */
+@media (max-width: 900px) {
+  .detail-card, .detail-card.reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .detail-image {
+    max-height: 250px;
+  }
+}
+
+/* Responsive pour mobiles */
+@media (max-width: 600px) {
+  .actualite-container {
+    padding: 0.5rem;
+    gap: 1.5rem;
+  }
+
+  .actualite-title {
+    font-size: 1.5rem;
+  }
+
+  .actualite-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .actualite-description {
+    font-size: 0.9rem;
+  }
+
+  .actualite-details h3 {
+    font-size: 1.4rem;
+  }
+
+  .detail-content h4 {
+    font-size: 1.3rem;
+  }
+
+  .detail-content p {
+    font-size: 0.9rem;
+  }
+
+  .inscription-link {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

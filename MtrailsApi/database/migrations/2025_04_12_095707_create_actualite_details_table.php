@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('actualite_details', function (Blueprint $table) {
             $table->id('idDetailActu');
             $table->foreignId('idActu')
-                   ->references('idActu')
-                   ->on('actualites')
-                   ->onDelete('cascade');            $table->string('titre');
+                ->constrained(table: 'actualites', column: 'idActu')
+                ->onDelete('cascade');           
+            $table->string('titre');
             $table->text('description')->nullable();
             $table->string('image')->nullable();
         });

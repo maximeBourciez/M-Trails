@@ -12,7 +12,6 @@ import { ContactService } from '../services/contact.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss',
               './spots.scss',
-              './issues.scss',
   ]
 })
 export class HomeComponent {

@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('ville');
             $table->string('type'); // tech, airline, etc.
             $table->date('maintenanceDate')->nullable();
+            $table->string('videoUrl')->nullable();
+            $table->decimal('latitude', 10, 7)->nullable()->after('ville');
+            $table->decimal('longitude', 10, 7)->nullable()->after('latitude');
         });
     }
 

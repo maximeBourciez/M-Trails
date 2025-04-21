@@ -1,0 +1,52 @@
+<div class="actualite-container">
+  <h2>Actualités</h2>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading">
+    <p>Chargement des actualités...</p>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!isLoading && actualites.length === 0" class="no-actualites">
+    <p>Aucune actualité disponible pour le moment.</p>
+  </div>
+
+  <!-- Actualites Grid -->
+  <div *ngIf="!isLoading && actualites.length > 0" class="actualite-grid">
+    @for (actualite of actualites; track actualite.idActu) {
+      <div class="actualite-card">
+        <div class="actualite-image-container">
+          <img [src]="actualite.image" [alt]="actualite.titre" class="actualite-image"
+               (error)="handleImageError($event)" />
+          <div class="actualite-type-badge" [ngClass]="getTypeClass(actualite.type)">
+            {{ actualite.type }}
+          </div>
+          <h3 class="actualite-title">{{ actualite.titre }}</h3>
+        </div>
+
+        <div class="actualite-subtitle">
+          {{ actualite.sousTitre }}
+        </div>
+
+        <div class="actualite-description">
+          {{ (actualite.description | slice:0:100) + (actualite.description.length > 100 ? '...' : '') }}
+        </div>
+
+        <div class="actualite-date">
+          {{ actualite.date | date:'dd/MM/yyyy' }}
+        </div>
+
+        <a [routerLink]="['/actu', actualite.idActu]" class="view-more">
+          Voir plus
+        </a>
+
+
+        <!-- Event registration link if applicable -->
+        <a *ngIf="actualite.type === TypeActu.Evenement && actualite.inscriptionUrl"
+           [href]="actualite.inscriptionUrl" class="register-link" target="_blank">
+          S'inscrire
+        </a>
+      </div>
+    }
+  </div>
+</div>
